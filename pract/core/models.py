@@ -15,13 +15,6 @@ class Post(models.Model):
 	def find_by_slug(cls, slug):
 		return cls.objects.filter(slug=slug).first()
 
-	@classmethod
-	def get_all_url_names(cls):
-		name_list = []
-		for obj in cls.objects.all():
-			name_list.append(obj.name)
-		return name_list
-
 	def get_number_of_posts(self):
 		return len(Comment.find_by_art(self))
 
