@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    div{
+        color: white;
+    }
+</style>
+<div>
+    <h3>{{post.title}}</h3>
+    <p>{{post.text}}</p>
+    <p>Оновлено {{article.updated}}</p>
+    <p>Сворено {{article.created}}</p>
+</div>
+<br>
+<div>
+    <b>Comments</b>
+</div>
+<div>
+    {% if comments %}
+        {% for comment in comments %}
+        <p>{{comment.username}}</p>
+        <p>{{comment.text}}</p>
+        {% endfor %}
+    {% else %}
+        <p>Nothing to see here</p>
+    {% endif %}
+
+    <br>
+</div>
+{% endblock content %}
